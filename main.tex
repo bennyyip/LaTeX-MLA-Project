@@ -1,0 +1,34 @@
+% \documentclass[12pt,letterpaper]{article}
+% \usepackage[american]{babel}
+% \usepackage{csquotes}
+
+\RequirePackage{ifpdf}
+\ifpdf
+\documentclass[pdftex,12pt]{article}
+\else
+\documentclass[12pt]{article}
+\fi
+
+\usepackage{config}
+\usepackage{style}
+
+\usepackage[style=mla, backend=biber]{biblatex}
+\defbibheading{bibliography}{\newpage\centering Works Cited}
+\addbibresource{main.bib}
+\setlength{\bibhang}{0.5in}
+
+% Using \mlacite[]{} over \autocite[]{} will prevent biblatex-mla from ever
+% shortening your citation. My teachers have all required this.
+\newcommand{\mlacite}[2][]{\mancite\autocite[#1]{#2}}
+
+\title{\essaytitle}
+\author{\essayauthor}
+\date{\essaydate}
+
+\begin{document}
+\begin{mla}{\essayauthorfirst}{\essayauthorlast}{\essayinstructor}{\essayclass}{\essaydate}{\essaytitle}
+  \input{essay.tex}
+
+  \printbibliography
+\end{mla}
+\end{document}

@@ -1,8 +1,7 @@
 LATEX=pdflatex
-LATEXFLAGS=-interaction=nonstopmode
-LATEXSOURCES=mla.tex
+# LATEXSOURCES=mla.tex
 
 all:
-	$(LATEX) $(LATEXFLAGS) $(LATEXSOURCES)
-	biber $(BIBERFLAGS) $(PAPERNAME)
-	$(LATEX) $(LATEXFLAGS) $(LATEXSOURCES)
+	$(LATEX) main.tex
+	biber main
+	$(LATEX) main.tex
