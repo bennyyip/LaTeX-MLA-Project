@@ -12,9 +12,15 @@
 \usepackage{config}
 \usepackage{style}
 
-\usepackage[style=mla, backend=biber]{biblatex}
+\usepackage[style=mla, backend=biber, noremoteinfo=false]{biblatex}
 \defbibheading{bibliography}{\newpage\centering Works Cited}
 \addbibresource{main.bib}
+
+\DeclareBibliographyDriver{footcite:online}{% correct url citation
+  \usedriver
+  {\renewbibmacro*{bbx:savehash}{}}
+{online}}
+
 \setlength{\bibhang}{0.5in}
 
 % Using \mlacite[]{} over \autocite[]{} will prevent biblatex-mla from ever
@@ -26,7 +32,8 @@
 \date{\essaydate}
 
 \begin{document}
-\begin{mla}{\essayauthorfirst}{\essayauthorlast}{\essayinstructor}{\essayclass}{\essaydate}{\essaytitle}
+\begin{mla}{\essayauthorfull}{\essayauthorlast}{\essayinstructor}{\essayclass}{\essaydate}{\essaytitle}
+
   \input{essay.tex}
 
   \printbibliography

@@ -11,3 +11,5 @@
 \fi
 
 \newcommand{\essayauthor}{\essayauthorfirst{} \essayauthorlast{}}
+
+\renewenvironment{mla}[6]{\newcommand{\lastname}{#2} \fancyhead[RO]{\lastname\ \thepage} \raggedright #1 \\  #3 \\ #4 \\ #5 \\ \centering #6 \\ \frenchspacing\raggedright\setlength{\parindent}{.5in}}{\newpage}
